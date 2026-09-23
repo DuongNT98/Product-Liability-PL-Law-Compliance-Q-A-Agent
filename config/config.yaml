@@ -1,0 +1,12 @@
+# Runtime parameters — loaded by AgentRegistry, passed as Graph(config=...).
+# This is a SEPARATE file from config/agent.yaml (the static manifest): agent.yaml
+# is AgentRegistry's discovery entry point, this file is the agent's own runtime
+# config, keyed by whatever your Graph/node code reads via self.config.get(...).
+# See the framework manifest reference for the agent.yaml / config.yaml split of responsibility.
+
+max_retry: 3
+timeout_s: 30
+
+# kb / llm are optional constructor-injected dependencies for
+# MFGPLComplianceAgent.register_nodes() — not wired here; the default
+# (no LLM, empty KB) is a valid deterministic-fallback configuration.
